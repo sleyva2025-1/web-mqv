@@ -1,0 +1,255 @@
+footer {
+  position: relative;
+  background: #f6f6f6ee;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+}
+
+.footer-wave {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  width: 101%;
+  overflow: hidden;
+  line-height: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform-origin: center;
+
+  
+    path:nth-child(1) {
+      animation: wave-animation 6s linear infinite alternate;
+    }
+
+    path:nth-child(2) {
+      animation: wave-animation 8s linear infinite alternate-reverse;
+    }
+
+    path:nth-child(3) {
+      animation: wave-animation 10s linear infinite alternate;
+    }
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    d: path("M0,288L48,272C96,256,192,224,288,192C384,160,480,128,576,144C672,160,768,224,864,250.7C960,277,1056,267,1152,234.7C1248,203,1344,149,1392,122.7L1440,96V320H0Z");
+    transform: translateX(0);
+  }
+  50% {
+    d: path("M0,256L48,240C96,224,192,192,288,181.3C384,171,480,181,576,186.7C672,192,768,192,864,197.3C960,203,1056,213,1152,202.7C1248,192,1344,160,1392,144L1440,128V320H0Z");
+    transform: translateX(-15px);
+  }
+  100% {
+    d: path("M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,96C672,96,768,128,864,138.7C960,149,1056,139,1152,149.3C1248,160,1344,192,1392,208L1440,224V320H0Z");
+    transform: translateX(0);
+  }
+}
+
+
+@media (min-width: 1599px) {
+  .footer-wave {
+    top: 136px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-wave {
+    top: 1119px;
+  }
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px 90px 39px;
+  margin-left: 90px;
+  gap: 30px;
+
+  @media (max-width: 1024px) {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    align-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .footer-container{
+    margin-left: 0px !important;
+  }
+}
+@media (min-width: 1599px) {
+  .footer-container{
+    padding: 50px 12% 39px;
+  }
+}
+
+
+.first-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 250px;
+  max-width: 300px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+
+  @media (max-width: 1024px) {
+    flex: 0 1 calc(50% - 40px);
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p, a {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #005ea8;
+  }
+}
+
+.text-presentacion {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 250px;
+  text-align: justify;
+  font-size: 14px;
+  color: #555;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin: 15px auto;
+  }
+}
+
+.footer-subsection {
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+.social-logo {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.pages-methods {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-top: 10px;
+
+  @media (max-width: 768px) {
+    max-width: 200px;
+  }
+}
+
+.footer-logo {
+  max-width: 170px;
+  margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    max-width: 150px;
+  }
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.airplane-container {
+  position: relative;
+  width: 100%;
+  height: 50px; /* Ajusta la altura según sea necesario */
+  display: flex;
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+.dashed-line {
+  width: 100%;
+  height: 2px;
+  border-top: 2px dashed #042f59;
+  position: absolute;
+  top: 50%; /* Centra la línea en el contenedor */
+  left: 0;
+}
+
+.airplane-footer {
+  width: 40px;
+  position: absolute;
+  top: calc(50% - 19px);
+  right: 0;
+}

@@ -1,0 +1,26 @@
+:root {
+  --color-primary: #072D75;
+  --color-accent: #07afe9;
+  --color-white: #fff;
+  --color-text: #676767;
+  --color-nav: #1D63A0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.nav-content,.footer-container,.container-contac-us {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: var(--color-text);
+}

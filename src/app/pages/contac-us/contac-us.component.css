@@ -1,0 +1,240 @@
+/* Banner */
+.banner-container {
+  position: relative;
+}
+
+.banner-container h1 {
+  position: absolute;
+  color: rgb(235, 235, 235);
+  text-align: center;
+  font-size: 6rem;
+  left: 5%;
+  bottom: 30rem;
+}
+
+.banner-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Header */
+.header-container {
+  margin: 0;
+  background-color: #bed2e4;
+  color: #444;
+  padding: 11rem;
+  text-align: left;
+  font-size: 3rem;
+}
+
+.circular-image {
+  width: 400px;          /* Ajusta el tamaño según necesites */
+  height: 400px;         /* Mismo valor que el ancho para un círculo perfecto */
+  border-radius: 100%;    /* Esto crea la forma circular */
+  object-fit: cover;     /* Asegura que la imagen cubra el espacio sin deformarse */
+  
+  margin-top: -15rem;  /* Mover hacia arriba */
+  margin-left: 70rem;  /* Mover hacia la derecha */
+
+  margin-right: 0rem;
+  z-index: 100; /* Asegura que esté por encima de otros elementos */
+  
+}
+
+/* Formulario */
+.form-container {
+  padding: 8rem 0;
+}
+
+#asesoria {
+  font-size: 100px;
+  text-align: center;
+  position: relative;
+  top: -60px;
+}
+
+#frase {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.form-content {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.imagen-container {
+  text-align: center;
+}
+
+.viajero-image {
+  width: 600px;
+  height: 660px;
+  border-radius: 10%;
+}
+
+.frase {
+  margin-top: 1rem;
+  font-size: small;
+}
+
+/* Contacto Form */
+.contact-container {
+  max-width: 80rem;
+  min-width: 400px;  
+  padding: 90px;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 1.5rem;
+  margin-right: 1.5rem; 
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  display: block;
+  margin-top: 2px;
+}
+
+.contact-container h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  width: 60%;
+  margin-top: 15px;
+  margin-left: 3rem;
+  padding: 14px;
+  padding-left: 15px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.confirmacion {
+  color: green;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Sección Contacto */
+.contacto-container {
+  background: #eaf6ff;
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.titulo-box h2,
+.titulo-box h3 {
+  background: white;
+  color: #444;
+  font-size: 40px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.titulo-box h2 {
+  width: 300px;
+  margin-top: -5rem;
+}
+
+.titulo-box h3 {
+  width: 600px;
+}
+
+/* Cajas */
+.contacto-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box .icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.box h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Redes Sociales */
+.redes h4 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.redes p {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+}
+
+.icons img:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,103 @@
+<div class="container-contac-us">
+    <!-- Banner principal -->
+  <section class="banner-container">
+    <h1>Contáctanos: Tu próxima aventura comienza aquí</h1>
+    <img src="assets/images/montaña.jpg" alt="Montaña" class="banner-image" />
+  </section>
+
+  <!-- Header -->
+  <section class="header-container">
+    <header id="titulo">
+      <div class="header-text">
+        <h1>¡Planifiquemos tu próxima</h1>
+        <h1>aventura!</h1>
+      </div>
+      <div class="header-image">
+        <img src="assets/images/viajera.jpg" alt="Imagen circular" class="circular-image" />
+      </div>
+    </header>
+  </section>
+
+  <!-- Formulario -->
+  <section class="form-container">
+    <h1 id="asesoria">Asesoría personalizada</h1>
+    <h1 id="frase">"¡Planifiquemos juntos tu viaje!"</h1>
+
+    <div class="form-content">
+      <!-- Imagen y frase -->
+      <div class="imagen-container">
+        <img src="assets/images/paisaje2.jpg" alt="Imagen paisaje" class="viajero-image" />
+        <h3 class="frase">"Machu Picchu: la mejor maravilla del mundo, elegida por la revista Traveler's World en 2024."</h3>
+      </div>
+
+      <!-- Formulario -->
+      <div class="contact-container">
+          <h2>Contáctanos</h2>
+        <form  action="https://formspree.io/f/xzzazjll" method="POST">
+          <label for="nombre">Nombre:*</label>
+          <input type="text" placeholder="Nombre" name="nombre" #nombreInput (input)="validarFormulario()" required>
+          <span id="error-nombre" class="error"></span>
+
+          <label for="email">Correo electrónico:</label>
+          <input type="email" placeholder="Correo electrónico" name="email" #emailInput (input)="validarFormulario()">
+          <span id="error-email" class="error"></span>
+
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" placeholder="Teléfono" name="telefono" #telefonoInput (input)="validarFormulario()">
+          <span id="error-telefono" class="error"></span>
+
+          <label for="mensaje">Mensaje:</label>
+          <textarea placeholder="Mensaje (opcional)" name="mensaje" #mensajeInput></textarea>
+          
+          <button type="submit" [disabled]="!formValido">Enviar</button>
+        </form>
+
+        <div *ngIf="enviado" class="mensaje-exito">
+          ¡Formulario enviado con éxito!
+        </div>
+
+        <p *ngIf="enviado" class="confirmacion">✅ ¡Gracias por contactarnos! Te responderemos pronto.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto-container">
+    <div class="titulo-box">
+      <h2>¿Necesitas ayuda inmediata?</h2>
+      <h3>Soporte garantizado 24/7, sin interrupciones.</h3>
+    </div>
+
+    <div class="contacto-boxes">
+      <div class="box">
+        <div class="icon"><img src="assets/logos/correo.png" alt="Correo" width="85px" /></div>
+        <h4>Correo</h4>
+        <small>informes&#64;masquevacaciones.com.pe</small><br>
+        <small>Respuesta en menos de 2 horas</small>
+      </div>
+
+      <div class="box">
+        <div class="icon"><img src="assets/logos/telefono.png" alt="Teléfono" width="80px" /></div>
+        <h4>Teléfono</h4>
+        <p><em>+51 932 244 747</em></p>
+        <small>Lun-Sab 9:00am - 6:30pm</small>
+      </div>
+    </div>
+
+    <div class="redes">
+      <h4>Redes Sociales</h4>
+      <p>Contáctanos a través de nuestras redes sociales</p>
+      <div class="icons">
+        <a href="#"><img src="assets/logos/facebook-icon.webp" alt="Facebook" /></a>
+        <a href="#"><img src="assets/logos/whatsApp-icon.webp" alt="Whatsapp" /></a>
+        <a href="#"><img src="assets/logos/tiktok-icon.webp" alt="TikTok" /></a>
+        <a href="#"><img src="assets/logos/instagram-icon.webp" alt="Instagram" /></a>
+        <a href="#"><img src="assets/logos/youtube-icon.png" alt="Youtube" /></a>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
