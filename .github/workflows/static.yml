@@ -2,19 +2,15 @@
 name: Deploy Angular to GitHub Pages
 
 on:
-  # Se ejecuta en cada push a la rama "main"
   push:
     branches: ["main"]
-  # Te permite ejecutarlo manualmente desde la pestaña "Actions"
   workflow_dispatch:
 
-# Permisos especiales para que la Action pueda escribir en GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Solo permite un despliegue a la vez
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -32,31 +28,27 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # Puedes cambiar esto a tu versión de Node.js
+          node-version: 20
       
       - name: Install dependencies
         run: npm install
       
       # ----------------------------------------------------
-      # ¡ESTE ES EL PASO CLAVE PARA ANGULAR!
+      # 1. USA EL NOMBRE DEL REPOSITORIO: web-mov
       # ----------------------------------------------------
       - name: Build Angular App
-        # Reemplaza 'NOMBRE-DE-TU-REPO' con el nombre de este repositorio
-        run: npm run build -- --configuration production --base-href /web-mqv/
-      # ----------------------------------------------------
+        run: npm run build -- --configuration production --base-href /web-mov/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
+      # ----------------------------------------------------
+      # 2. USA EL NOMBRE DEL PROYECTO (de angular.json): webmqv
+      # ----------------------------------------------------
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # ----------------------------------------------------
-          # ¡ESTE ES EL OTRO PASO CLAVE!
-          # ----------------------------------------------------
-          # Reemplaza 'NOMBRE-DE-TU-PROYECTO' con el nombre de tu proyecto en angular.json
           path: './dist/webmqv/'
-          # ----------------------------------------------------
           
       - name: Deploy to GitHub Pages
         id: deployment
