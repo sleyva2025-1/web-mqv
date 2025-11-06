@@ -37,7 +37,7 @@ jobs:
       # 1. USA EL NOMBRE DEL REPOSITORIO: web-mov
       # ----------------------------------------------------
       - name: Build Angular App
-        run: npm run build -- --configuration production --base-href /web-mov/
+        run: npm run build -- --configuration production --base-href /web-mqv/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
