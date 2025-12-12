@@ -45,20 +45,34 @@
       <button class="hamburger" (click)="toggleMenu()">☰</button>
       <div class="menu"  [class.open]="isMenuOpen">
         <ul class="nav-list">
-          <li *ngFor="let route of routes">
-            <a [routerLink]="['/', route.path]" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
-              {{ route.name }}
-            </a>
-          </li>
-        </ul>
-          <!-- Sección INS -->
-        <div class="INS">
+        <li *ngFor="let route of routes" [class.dropdown]="route.children">
+          
+          <a [routerLink]="['/', route.path]" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+            {{ route.name }}
+          </a>
+          
+          <ul *ngIf="route.children" class="dropdown-menu">
+            <li *ngFor="let child of route.children">
+              <a [routerLink]="['/', child.path]" class="dropdown-item" (click)="toggleMenu()">
+                {{ child.name }}
+              </a>
+            </li>
+          </ul>
+
+        </li>
+      </ul>
+          
+        
+        
+        <!-- Sección INS -->
+        <!--<div class="tns">
           <a routerLink="/INICIO">🏠INICIO</a> 
-          <a routerLink="/CONTÁCTANOS">📞CONTÁCTANOS</a>
+          
           <a routerLink="/CONÓCENOS">👥CONÓCENOS</a>
+          <a routerLink="/soporte" routerLinkActive="active">🎧SOPORTE</a>
           <a routerLink="/PAQUETES">✈️PAQUETES</a>
-          <a routerLink="/PRÓXIMA AVENTURA">🏞️PRÓXIMA AVENTURA</a>
-        </div>
+          
+        </div>-->
 
       </div>
     </div>

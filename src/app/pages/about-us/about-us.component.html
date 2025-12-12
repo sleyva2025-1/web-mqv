@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<app-banner [isVideo]="true" [videoUrl]="videoUrl" title="">
+  <iframe #videoFrame [src]="videoUrl" width="100%" height="100%" frameborder="0"
+    (click)="preventPause($event)"></iframe>
+</app-banner>
+
+<button class="mute-toggle" (click)="toggleMute()" [title]="isMuted ? 'Unmute' : 'Mute'">
+  <i class="fas" [class.fa-volume-up]="!isMuted" [class.fa-volume-mute]="isMuted"></i>
+</button>
+
+
+<div class="container">
+
+  <div class="history-content" #historyContent>
+    <div class="part2">
+      <div class="histori-header">
+        <h2>Nuestra historia</h2>
+        <img src="/assets/images/airplane-mobile.png" alt="ornament" class="air">
+      </div>
+
+      <div class="text-content-bg">
+        <p class="text-content">
+          El inicio fue con una estafa que sufrí en una agencia de viajes al comprar un boleto, al buscar una forma de
+          recuperar el dinero descubrí lo que involucra el mundo de los viajes, quedando cautivada por toda la logística
+          que conlleva viajar, no recuperé el dinero pero me abrió un profundo deseo por aprender y decidí formar parte
+          de este bello rubro, empecé mis estudios en Columbia para luego formarme profesionalmente en empresas como
+          Nuevo Mundo, Despegar, Viajes el Corte Inglés adquiriendo un amplio conocimiento en este sector. Con los años
+          y creciendo en conocimiento me di cuenta que era tiempo de emprender vuelo y empezar mi propia historia para
+          seguir uniendo a familias, cumpliendo sueños y creando experiencias únicas, de las que se atesoran en el
+          corazón. Así nace MÁS QUE VACACIONES, ya son 10 años de entrega y servicio con honestidad, aportando al
+          crecimiento de nuestro sector turístico y fomentando el turismo sostenible, somos parte de la comunidad Marca
+          Perú y Promperú . ¿Estás listo para vivir tu propia experiencia inolvidable con nosotros? Contacta hoy a MÁS
+          QUE VACACIONES y deja que nuestros expertos transformen tu sueño en realidad.
+        </p>
+      </div>
+    </div>
+
+    <div class="part2">
+
+      <div class="fundadora-mobile">
+        <img [src]="currentImage" alt="Imagen fundadora" class="fundadora-image" (mouseenter)="onHover()"
+          (mouseleave)="onLeave()" (click)="onClick()" />
+          
+          <p class="image-caption">Me encanta viajar y tengo mas de 20 años de experiencia</p>
+      </div>
+      
+      
+
+
+      <div class="text-content-bg">
+
+        <div class="audio-controls">
+          <button (click)="toggleAudio()" class="btn-audio">
+            <i class="fas" [class.fa-play]="audioPaused" [class.fa-pause]="!audioPaused"></i>
+            {{ audioPaused ? 'Escuchar historia' : 'Pausar historia' }}
+          </button>
+          <audio #audioRef style="display:none;" (ended)="onAudioEnded()" (pause)="onAudioPaused()"
+            (play)="onAudioPlayed()">
+            <source src="assets/audios/conocenos2.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="history-content" #historyContent>
+    <div class="part1">
+      <div class="fundadora-mobile">
+        <video class="fundadora-image-1" autoplay muted loop playsinline>
+          <source src="assets/images/video-logo.mp4" type="video/mp4" />
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <img src="/assets/images/bordes/ave.png" alt="ornament" class="ave"> 
+<img src="assets/images/video-logo.gif" alt="Logo animado" class="fundadora-image" /> 
+-->
+
+<div class="Esencia-content" #esenciaContent>
+  <h4>Nuestra promesa</h4>
+  <div class="image-container">
+    <app-cards *ngFor="let item of galleryItems" [image]="item.image" [title]="item.title"
+      [description]="item.description" class="card-item">
+    </app-cards>
+  </div>
+</div>
+
+
+
+<!-- <img src="/assets/images/bordes/tourist.png" alt="ornament" class="tourist"> -->
+
+<div class="servicios-container">
+  <app-servicios></app-servicios>
+</div>
+
+<div class="review_container">
+  <div class="review">
+    <app-reviws [reviews]="reviewList"></app-reviws>
+  </div>
+</div>
+
+<!-- <img src="/assets/images/bordes/guacamayo.png" alt="ornament" class="guaca">-->
+
+<div class="galery">
+  <app-gallery></app-gallery>
+</div>
+
+<div class="carousel_fondo">
+
+  <div class="gallery-container">
+    <div class="gallery">
+      <div class="carousel-container">
+        <h4 class="icon-heading">
+          <i class="fas fa-users"></i>
+          Parte de nuestros aliados estratégicos
+        </h4>
+        <p>
+          En Más que vacaciones, hemos logrado establecer alianzas estratégicas con los socios más confiables y
+          destacados
+          del sector.
+        </p>
+        <app-carousel [items]="carouselItems1" [itemsToShow]="5" [autoRotate]="true"
+          [rotationInterval]="3000"></app-carousel>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="gallery">
+    <div class="carousel-container">
+      <h4 class="icon-heading">
+        <i class="fas fa-handshake"></i>
+        Aliados que certifican nuestra trayectoria
+      </h4>
+      <p>
+        A lo largo de nuestra trayectoria en el sector turístico, hemos contado con el valioso respaldo de
+        reconocidas instituciones que confían en nuestro compromiso y profesionalismo.
+      </p>
+      <app-carousel [items]="carouselItems2" [itemsToShow]="5" [autoRotate]="true"
+        [rotationInterval]="3000"></app-carousel>
+
+      <h4 class="icon-heading">
+        <i class="fas fa-hotel"></i>
+        Turismo con valores : orgullosos de pertenecer a Protégeme Turismo Responsable
+      </h4>
+      <p>
+        Formamos parte de Protégeme Turismo Responsable, una iniciativa que promueve un turismo seguro,
+        ético y sostenible.
+      </p>
+      <div class="grid-container">
+        <div *ngFor="let item of carouselItems3" class="card">
+          <img [src]="item.image" [alt]="item.title" class="card-image">
+          <h3 class="card-title">{{ item.title }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="gallery">
+  </div>
+
+
+</div>
+
+
+
+<router-outlet></router-outlet>

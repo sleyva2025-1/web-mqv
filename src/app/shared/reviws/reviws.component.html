@@ -1,0 +1,44 @@
+<div class="head">
+  <div class="head-text">
+    <h4>Nuestros clientes son nuestra mejor carta de presentación.</h4>
+  </div>
+  <button (click)="toggleReviews()">{{ stopedReview ? 'Contraer opiniones  ⬆' : 'Ver mas opiniones  ⬇' }}</button>
+</div>
+
+<div class="review-carousel">
+  
+  <div class="review-items" [ngClass]="{ 'stop': stopedReview }" [ngStyle]="reviewItemsStyle">
+
+    <div class="review-item" *ngFor="let review of reviews; let i = index" [style.flex]="currentFlexItem">
+      <div class="review-header">
+        <div class="review-info">
+          <div class="review-name">{{ review.name }}</div>
+          <div class="review-time">{{ review.time }}</div>
+        </div>
+        <div class="review-avatar">
+          <img [src]="review.image" [alt]="review.name">
+        </div>
+      </div>
+
+      <div class="review-stars">
+        <span>{{ '★'.repeat(review.stars) }}</span>
+      </div>
+
+      <div class="review-text">
+        {{ truncateText(review.text, i) }}
+        <button *ngIf="review.text.split(' ').length > 30" (click)="toggleReadMore(i)" class="read-more-btn">
+          {{ expandedReviews[i] ? 'Leer menos' : 'Leer más' }}
+        </button>
+      </div>
+      
+      <div class="review-google-icon">
+        <img src="assets/logos/google-icon.png" alt="Google Review">
+      </div>
+    </div>
+
+  </div> <div class="button-container">
+    <button class="see-more" (click)="navigateToGoogle()">Ver todas las reseñas ⮕</button>
+  </div>
+
+</div>
+

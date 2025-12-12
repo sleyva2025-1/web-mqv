@@ -1,28 +1,109 @@
 <div class="container-contac-us">
     <!-- Banner principal -->
   <section class="banner-container">
-    <h1>Contáctanos: Tu próxima aventura comienza aquí</h1>
-    <img src="assets/images/montaña.jpg" alt="Montaña" class="banner-image" />
+    <h1>SOPORTE </h1>
+    <h2>Tu satisfacción es <br>nuestra prioridad</h2>
+    <img src="assets/images/soporte_2.jpg" alt="Montaña" class="banner-image" />
+  </section>
+  
+
+
+
+
+
+  <section class="faq-container">
+    <h1>PREGUNTAS FRECUENTES</h1>
+
+    
+
+  <div *ngFor="let faq of faqs; let i = index" class="faq-item" [class.open]="faq.open" (click)="toggleFaq(i)">
+
+    <div class="faq-question">
+      <div class="question-content">
+        <i [class]="faq.icon"></i>
+        <span>{{ faq.question }}</span>
+      </div>
+      <img src="assets/images/flecha.png" class="arrow" [class.rotate]="faq.open" alt="Desplegar respuesta">
+    </div>
+
+    <div class="faq-answer-wrapper" [class.show]="faq.open">
+      <div class="faq-answer">
+        <ul>
+          <li *ngFor="let item of faq.answer">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
   </section>
 
-  <!-- Header -->
-  <section class="header-container">
-    <header id="titulo">
-      <div class="header-text">
-        <h1>¡Planifiquemos tu próxima</h1>
-        <h1>aventura!</h1>
+
+
+    
+
+
+      <!-- Politicas Importantes -->
+       
+      
+      <div class="container">
+        <h1>POLÍTICAS IMPORTANTES</h1>
+      <div class="policy-card">
+        <div class="icon-container">
+          <img src="assets/logos/politica-de-privacidad.png" alt="Icono de Privacidad">
+        </div>
+        <h2>POLÍTICAS DE PRIVACIDAD</h2>
+        <ul>
+          <li>La empresa solicita información personal como nombre, correo, teléfono, etc.</li>
+          <li>Los datos se emplean para procesar reservas y comunicación con el cliente.</li>
+          <li>La empresa aplica medidas de seguridad como cifrado y acceso limitado.</li>
+          <li>Los clientes tienen derecho a solicitar la eliminación de sus datos.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1vgajuV3bEnPXAH8YgCrcSSCdN0zRbMru/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <button class="more-info-btn" >Ver más</button>
+        </a>
+        
       </div>
-      <div class="header-image">
-        <img src="assets/images/viajera.jpg" alt="Imagen circular" class="circular-image" />
+
+
+
+    <div class="policy-card">
+        <div class="icon-container">
+          <img src="assets/logos/terminos.png" alt="Icono de Términos">
+        </div>
+        <h2>TÉRMINOS Y CONDICIONES</h2>
+        <ul>
+          <li>Todas las tarifas están en dólares americanos e incluyen el IGV si se requiere factura.</li>
+          <li>El viajero es responsable de cumplir con toda la documentación requerida.</li>
+          <li>MQV actúa únicamente como intermediaria en la reserva de los servicios turísticos.</li>
+          <li>La empresa no asume responsabilidad por retrasos, cancelaciones o daños ocasionados por terceros.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1S3U9jMtuizxVZGn9pq-S_k0IGAktNWnY/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <button class="more-info-btn" >Ver más</button>
+        </a>
+          
       </div>
-    </header>
-  </section>
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Formulario -->
   <section class="form-container">
-    <h1 id="asesoria">Asesoría personalizada</h1>
-    <h1 id="frase">"¡Planifiquemos juntos tu viaje!"</h1>
-
+    <h1 id="asesoria">CANALES DE ATENCIÓN <br> INMEDIATA</h1>
+    
     <div class="form-content">
       <!-- Imagen y frase -->
       <div class="imagen-container">
@@ -32,7 +113,7 @@
 
       <!-- Formulario -->
       <div class="contact-container">
-          <h2>Contáctanos</h2>
+          <h2>Contáctanos</h2> <br><br>
         <form  action="https://formspree.io/f/xzzazjll" method="POST">
           <label for="nombre">Nombre:*</label>
           <input type="text" placeholder="Nombre" name="nombre" #nombreInput (input)="validarFormulario()" required>
@@ -65,8 +146,8 @@
   <!-- Contacto -->
   <section class="contacto-container">
     <div class="titulo-box">
-      <h2>¿Necesitas ayuda inmediata?</h2>
-      <h3>Soporte garantizado 24/7, sin interrupciones.</h3>
+     
+      
     </div>
 
     <div class="contacto-boxes">
@@ -89,11 +170,13 @@
       <h4>Redes Sociales</h4>
       <p>Contáctanos a través de nuestras redes sociales</p>
       <div class="icons">
-        <a href="#"><img src="assets/logos/facebook-icon.webp" alt="Facebook" /></a>
-        <a href="#"><img src="assets/logos/whatsApp-icon.webp" alt="Whatsapp" /></a>
-        <a href="#"><img src="assets/logos/tiktok-icon.webp" alt="TikTok" /></a>
-        <a href="#"><img src="assets/logos/instagram-icon.webp" alt="Instagram" /></a>
-        <a href="#"><img src="assets/logos/youtube-icon.png" alt="Youtube" /></a>
+        <a href="https://www.facebook.com/masquevacaciones" target="_blank"><img src="assets/logos/facebook-icon.webp" alt="Facebook" /></a>
+        <a href="https://api.whatsapp.com/send?phone=51932244747&text=Hola,%20Quisiera%20viajar%20alg%C3%BAn%20destino.%20Me%20ayudan?" target="_blank"><img src="assets/logos/whatsApp-icon.webp" alt="Whatsapp" /></a>
+        <a href="https://www.tiktok.com/@masquevacaciones?_t=ZS-90MS386wLpK&_r=1" target="_blank"><img src="assets/logos/tiktok-icon.webp" alt="TikTok" /></a>
+        <a href="https://www.instagram.com/masquevacaciones/" target="_blank"><img src="assets/logos/instagram-icon.webp" alt="Instagram" /></a>
+        <a href ="https://www.youtube.com/@masquevacaciones" target="_blank"><img src="assets/logos/youtube-icon.png" alt="Youtube" /></a>
+        <a href="https://www.google.com/search?q=mas+que+vacaciones&rlz=1C1UEAD_esPE1013PE1013&oq=mas+&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg5MhIIAhAuGEMYrwEYxwEYgAQYigUyDAgDEAAYQxiABBiKBTIGCAQQRRg8MgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMjA1MmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
+          target="_blank"><img src="/assets/logos/google-icon.png" alt="Google" class="social-logo" /></a>
       </div>
     </div>
   </section>

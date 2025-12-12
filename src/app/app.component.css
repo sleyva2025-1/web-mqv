@@ -5,3 +5,38 @@
   box-sizing: border-box;
 }
 
+/* --- Botón Flotante de WhatsApp --- */
+.whatsapp-float {
+  position: fixed; /* Mantiene el botón flotando */
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  width: 60px;     /* Ancho del botón */
+  height: 60px;    /* Alto del botón */
+  border-radius: 50%; /* Asegura que el 'clic' sea redondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  /* Quitamos background-color y display:flex */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Estilos para la IMAGEN dentro del botón */
+.whatsapp-float img {
+  width: 100%;  /* La imagen ocupa el 100% del botón */
+  height: 100%; /* La imagen ocupa el 100% del botón */
+  border-radius: 50%; /* Hace que la imagen en sí sea redonda */
+  /* ¡Quitamos el 'filter' y los tamaños fijos! */
+}
+
+/* --- Adaptación para Móviles --- */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;  /* Botón más pequeño en móviles */
+    height: 50px;
+  }
+}

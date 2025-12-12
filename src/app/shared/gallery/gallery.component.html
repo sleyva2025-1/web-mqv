@@ -1,0 +1,56 @@
+<div class="gallery-container">
+  <h2>¡Ellos ya vivieron la experiencia!</h2>
+  <div class="gallery">
+    <!-- Main larger image on left -->
+
+    <!-- Primer bloque: initialImages -->
+    <!-- Segundo bloque: highlightedImages -->
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let img of allImages">
+        <div class="image-wrapper">
+          <img [src]="img" alt="Imagen" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for showing all images -->
+    <div class="modal" *ngIf="showAllImages" (click)="toggleGallery()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close-btn" (click)="toggleGallery()">✖</span>
+        <div class="modal-gallery">
+          <div class="modal-gallery-item" *ngFor="let img of images; let i = index">
+            <div class="image-wrapper" (click)="openImage(img, i)">
+              <img [src]="img" alt="Imagen">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Enlarged image view with navigation -->
+    <div class="enlarged-view" *ngIf="selectedImage" (click)="closeImage()">
+      <div class="enlarged-content" (click)="$event.stopPropagation()">
+        <img class="enlarged-image" [src]="selectedImage" alt="Imagen Ampliada">
+
+        <!-- Navigation buttons -->
+        <button class="nav-btn prev-btn" (click)="navigateImage(-1, $event)" [disabled]="currentIndex === 0">
+          <span>❮</span>
+        </button>
+        <button class="nav-btn next-btn" (click)="navigateImage(1, $event)"
+          [disabled]="currentIndex === images.length - 1">
+          <span>❯</span>
+        </button>
+
+        <!-- Image counter -->
+        <div class="image-counter">
+          {{ currentIndex + 1 }} / {{ images.length }}
+        </div>
+
+        <span class="enlarged-close" (click)="closeImage($event)">✖</span>
+      </div>
+    </div>
+
+
+  </div>
+</div>

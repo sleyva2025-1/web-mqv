@@ -1,0 +1,27 @@
+<div class="banner-container">
+  <!-- Fondo con imagen -->
+  <div
+    *ngIf="urlImage && !isVideo"
+    class="banner-background"
+    [ngStyle]="{ 'background-image': backgroundImage }"
+  ></div>
+
+  <!-- Fondo con video -->
+  <div *ngIf="isVideo && videoUrl" class="banner-video">
+    <iframe
+    [src]="videoUrl"
+    title="YouTube video player"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+  </div>
+
+  <!-- Título del banner -->
+  <div *ngIf="title" class="banner-slogan">
+    <div class="main-container">
+      <h2>{{ title }}</h2>
+    </div>
+  </div>
+</div>
+

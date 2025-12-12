@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Servicios</h2>
+  <!-- Botón para contraer 
+  <button mat-button (click)="toggleExpansion()">
+    <mat-icon>{{ expandido ? 'expand_less' : 'expand_more' }}</mat-icon>
+    {{ expandido ? 'Ver menos' : 'Ver más' }}
+  </button>
+-->
+  <!-- Servicios principales (siempre visibles) -->
+  <div [@expandCollapse]="expandido ? 'expanded' : 'collapsed'" class="servicios-adicionales">
+    <div class="servicios-grid">
+      <div class="servicio-card" *ngFor="let servicio of serviciosPrincipales">
+        <div class="servicio-icono">
+          <mat-icon>{{servicio.icono}}</mat-icon>
+        </div>
+        <h3 class="servicio-titulo">{{servicio.titulo}}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Servicios principales (siempre visibles) -->
+  <div [@expandCollapse]="expandido ? 'expanded' : 'collapsed'" class="servicios-adicionales">
+    <div class="servicios-grid">
+      <div class="servicio-card" *ngFor="let servicio of serviciosAdicionales">
+        <div class="servicio-icono">
+          <mat-icon color="primary">{{servicio.icono}}</mat-icon>
+        </div>
+        <h3 class="servicio-titulo">{{servicio.titulo}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgFor } from '@angular/common'
+import { NgFor, NgIf } from '@angular/common'
 
 @Component({
   selector: 'app-nav',
   standalone: true,
   imports: [
     NgFor,
-    RouterModule
-  ],
+    RouterModule,
+    NgIf
+],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
@@ -17,7 +18,30 @@ export class NavComponent {
   isMenuOpen = false;
   
   // Asegúrate de definir SECTIONS_ROUTES o importarla de donde corresponda
-  routes: any[] = []; // Reemplaza con SECTIONS_ROUTES si está definida en otro lugar
+  
+
+  routes = [
+    { path: 'INICIO', name: '🏠INICIO' },
+    { path: 'conocenos', name: '👥CONÓCENOS' },
+    { path: 'soporte', name: '🎧SOPORTE' },
+    { 
+      path: 'PAQUETES', // Ruta principal (asegúrate que exista en app.routes.ts)
+      name: '✈️PAQUETES',
+      children: [ // Sub-enlaces
+        { path: 'paquetes-nacionales', name: 'PAQUETES NACIONALES' },
+        { path: 'paquetes-internacionales', name: 'PAQUETES INTERNACIONALES' }
+      ]
+    }
+    
+  ];
+
+
+
+
+
+
+
+
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen; // Corregido el operador lógico

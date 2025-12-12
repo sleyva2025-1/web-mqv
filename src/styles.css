@@ -24,3 +24,24 @@
   font-size: 16px;
   color: var(--color-text);
 }
+
+/* Estos estilos se aplican a toda la app */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tus Media Queries globales */
+@media (max-width: 600px) {
+  
+  /* Ejemplo: Ocultar todas las imágenes con esta clase en móvil */
+  .ocultar-en-movil {
+    display: none;
+  }
+
+  /* Ejemplo: Reducir el tamaño de fuente general del body */
+  
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

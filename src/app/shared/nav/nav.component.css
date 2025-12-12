@@ -17,6 +17,7 @@
     }
   }
   .menu {
+
     .nav-list {
       li {
         .nav-item {
@@ -65,6 +66,27 @@
   }
 
 
+    /* src/app/nav/nav.component.css o .scss */
+
+  /* Estilo para los enlaces normales en la navegación */
+  .tns a {
+    color: white; 
+    text-decoration: none; /* Si no quieres subrayado */
+      font-weight: bold;
+    transition: color 0.3s ease;
+     margin: 0 15px;
+  }
+
+  /* Estilo para el enlace activo (la página actual) */
+  .tns a.active {
+    color: white;
+    font-weight: bold; /* Hace el texto negrita */
+    border-bottom: 2px solid white; /* Añade un subrayado blanco */
+    padding-bottom: 2px; /* Pequeño espacio entre texto y subrayado */
+}
+
+
+
 
 
   &.scrolled {
@@ -106,7 +128,7 @@
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
 .menu {
-  margin-right: -50px; 
+  margin-right: 50px; 
 
   .nav-list {
     list-style-type: none;
@@ -202,3 +224,63 @@
 }
 
 
+li.dropdown {
+  position: relative; /* Permite posicionar el submenú debajo */
+}
+
+/* 2. El submenú (lista anidada) */
+.dropdown-menu {
+  display: none; /* 3. Oculto por defecto */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 4. Estilo de los enlaces dentro del desplegable */
+.dropdown-item {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 12px 20px;
+  font-size: 0.9rem; /* Un poco más pequeño */
+  font-weight: normal; /* Letra normal, no 'bolder' */
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #072d75; /* Color de fondo al pasar el mouse */
+}
+
+
+/* --- LÓGICA PARA ESCRITORIO (Pantallas grandes) --- */
+@media (min-width: 769px) {
+  
+  /* Posiciona el submenú */
+  .dropdown-menu {
+    /* 1. Oculto por defecto y listo para animar */
+    display: block; /* Lo dejamos 'block' para que la animación funcione */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Lo bajamos 10px para un efecto 'slide-up' */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    
+    /* 2. Estilos para que se destaque */
+    position: absolute;
+    top: 100%; /* Justo debajo del enlace 'PAQUETES' */
+    left: 0;
+    background-color: #073b70; /* Un azul más claro que el scroll (#042f59) */
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    border-top: 1px solid #00aeff; /* Línea superior de acento */
+    padding: 10px 0;
+    min-width: 200px;
+    z-index: 110;
+  }
+
+  /* 3. ¡LA MAGIA! Muestra el submenú al pasar el mouse */
+  li.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Vuelve a su posición original */
+  }
+}
