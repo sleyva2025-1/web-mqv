@@ -1,3 +1,6 @@
+/* =========================================
+   1. ESTILOS GLOBALES ORIGINALES
+   ========================================= */
 :root {
   --color-primary: #072D75;
   --color-accent: #07afe9;
@@ -12,36 +15,78 @@
   box-sizing: border-box;
 }
 
-
-
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
-.nav-content,.footer-container,.container-contac-us {
+.nav-content,
+.footer-container,
+.container-contac-us {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: var(--color-text);
 }
 
-/* Estos estilos se aplican a toda la app */
+/* Estilos base del cuerpo */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  /* La altura se controla mejor abajo, pero mantenemos tu base */
 }
 
-/* Tus Media Queries globales */
+html, body { 
+  height: 100%;
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+/* Media Queries Globales */
 @media (max-width: 600px) {
-  
-  /* Ejemplo: Ocultar todas las imágenes con esta clase en móvil */
   .ocultar-en-movil {
     display: none;
   }
-
-  /* Ejemplo: Reducir el tamaño de fuente general del body */
-  
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* =========================================
+   3. FIX GOOGLE TRANSLATE (AGRESIVO)
+   ========================================= */
+
+/* 1. Ocultar el contenedor principal de la barra de Google */
+.skiptranslate {
+    display: none !important;
+}
+
+/* 2. Ocultar específicamente el iframe de la barra */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+iframe.goog-te-banner-frame {
+    display: none !important;
+}
+
+/* 3. Forzar al body Y al html a no tener margen superior */
+/* Google añade 'top: 40px' al body, esto lo anula */
+body, html {
+    top: 0px !important;
+    margin-top: 0px !important;
+    position: static !important;
+}
+
+/* 4. Ocultar tooltips y resaltados (Mismo de antes) */
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}

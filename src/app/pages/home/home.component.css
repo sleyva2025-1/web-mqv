@@ -1,0 +1,632 @@
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Hace que el banner ocupe el 80% del alto de la pantalla */
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen llene el área sin deformarse */
+  filter: brightness(50%); /* Oscurece un poco la imagen para resaltar el texto */
+}
+
+.banner-container h1 {
+  position: absolute;
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.8rem; /* Texto más grande */
+  font-weight: bold;
+  text-align: center;
+  width: 90%;
+  line-height: 1.2;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* Sombras para mejor contraste */
+}
+
+/* ==== SECCIÓN DESCUBRE ==== */
+
+.descubre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.descubre-texto {
+  flex: 1 1 400px;
+  max-width: 600px;
+  text-align: justify;
+}
+
+.descubre-texto h2 {
+  font-size: 24px; /* un poco más grande que 16px */
+  font-weight: bold;
+  margin-bottom: 20px; /* separación del párrafo */
+}
+
+.descubre-texto p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.descubre-video {
+  flex: 1 1 400px;
+  max-width: 560px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-local {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ==== SECCIÓN PROMOCIONES ==== */
+.elige-container {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.elige-container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.elige-container p {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.promociones-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.carrusel-container {
+    width: 45%;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.carrusel-container h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* === Carrusel === */
+.carrusel {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.carrusel img {
+    width: calc(50% - 10px); /* Ahora se muestran solo 2 imágenes visibles */
+    height: 300px;           /* Más grandes */
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    padding: 5px;
+}
+
+.carrusel img:hover {
+    transform: scale(1.05);
+}
+
+/* Animación automática infinita */
+.auto-scroll {
+    animation: scroll 18s linear infinite;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-40%); /* Ajustado para 2 imágenes */
+    }
+}
+
+.carrusel::-webkit-scrollbar {
+    display: none;
+}
+
+/* ======================================== */
+/* ================ MODAL ================= */
+/* ======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    animation: zoom-in 0.3s ease;
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+/*SECCION DIFERNECIACION MQV*/
+.diferencia-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.diferencia-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 50px;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  font-family: Arial, sans-serif;
+}
+
+.feature {
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: invert(24%) sepia(95%) saturate(2000%) hue-rotate(200deg) brightness(80%) contrast(110%);
+}
+
+
+.feature h3 {
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #000000;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ============================= */
+/* SECCION SERVICIOS (FIX REAL) */
+/* ============================= */
+
+.servicios-section {
+  padding: 60px 40px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* TÍTULO */
+.servicios-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 40px;
+  text-align: left;        /* 👈 vuelve a la izquierda */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CONTENEDOR */
+.servicios-content {
+  display: flex;
+  justify-content: space-between; /* 👈 como antes */
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;              /* 👈 CONTROLA el ancho */
+  margin: 0 auto;                 /* 👈 centra el bloque completo */
+}
+
+/* LISTA DE SERVICIOS */
+.servicios-lista {
+  display: grid;                     /* 👈 CLAVE */
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 80px;
+  row-gap: 18px;
+}
+
+/* COLUMNAS */
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* ITEM */
+.servicio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.servicio-item img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: invert(25%) sepia(91%) saturate(3343%) hue-rotate(195deg) brightness(93%) contrast(95%);
+}
+
+/* ===================================== */
+/* IMAGEN + BOTÓN (RESPONSIVE CORRECTO) */
+/* ===================================== */
+
+.servicios-imagen {
+  display: flex;
+  flex-direction: column-reverse; /* 👈 BOTÓN ARRIBA */
+  align-items: center;
+  gap: 20px;
+}
+
+/* Imagen */
+.servicios-imagen img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Botón */
+.servicios-imagen button {
+  position: static;              /* 👈 ya no absoluto */
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.servicios-imagen button:hover {
+  background-color: #005f8a;
+}
+
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .servicios-section h2 {
+    text-align: center;
+  }
+
+  .servicios-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .servicios-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .servicio-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .servicios-imagen button {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .servicios-section h2 {
+    font-size: 22px;
+  }
+
+  .servicio-item {
+    font-size: 14px;
+  }
+
+  .servicio-item img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+/* ==== SECCIÓN ALIADOS ==== */
+.aliados-section {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+
+.aliados-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+/* CONTENEDOR DE LOGOS */
+.aliados-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* LOGOS GENERALES */
+.aliados-logos img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* LOGO DORADO — Ajuste proporcional (se ve más grande por diseño circular) */
+.logo-dorado {
+  transform: scale(0.75); /* Ajusta si lo quieres más chico o grande */
+}
+
+/* Hover */
+.aliados-logos img:hover {
+  transform: scale(1.05);
+}
+
+/* ====== RESPONSIVE ====== */
+
+/* Tablets ≤ 768px */
+@media (max-width: 768px) {
+  .aliados-logos img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-dorado {
+    transform: scale(0.75);
+  }
+}
+
+/* Móviles ≤ 480px */
+@media (max-width: 480px) {
+  .aliados-logos img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-dorado {
+    transform: scale(0.78);
+  }
+}
+
+
+/* ============================================
+   RESPONSIVE GLOBAL - TABLETS (≤ 1024px)
+============================================ */
+@media (max-width: 1024px) {
+
+  .banner-container h1 {
+    font-size: 2.2rem;
+    width: 95%;
+  }
+
+  .descubre-container {
+    gap: 3rem;
+    padding: 30px;
+  }
+
+  .promociones-container {
+    gap: 20px;
+  }
+
+  .carrusel-container {
+    width: 90%;
+  }
+
+  .servicios-section h2 {
+    transform: translate(0, 0); /* evita que se descuadre */
+    text-align: center;
+  }
+
+  .servicios-lista {
+    transform: translate(0, 0);
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+
+/* ============================================
+   RESPONSIVE MOVILES GRANDES (≤ 768px)
+============================================ */
+@media (max-width: 768px) {
+
+  /* BANNER */
+  .banner-container {
+    height: 55vh;
+  }
+
+  .banner-container h1 {
+    font-size: 1.9rem;
+  }
+
+  /* SECCIÓN DESCUBRE */
+  .descubre-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 2rem;
+  }
+
+  .descubre-texto h2 {
+    font-size: 22px;
+  }
+
+  .descubre-texto p {
+    font-size: 16px;
+  }
+
+  /* SECCIÓN PROMOCIONES */
+  .carrusel img {
+    height: 220px;
+  }
+
+  /* DIFERENCIACIÓN */
+  .features-container {
+    gap: 40px;
+  }
+
+  /* SERVICIOS */
+  .servicios-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .servicios-imagen button {
+    transform: translateX(-50%);
+  }
+
+  .servicio-item {
+    font-size: 14px;
+  }
+
+  /* ALIADOS */
+  .aliados-logos img {
+    width: 110px;
+  }
+
+  .logo-dorado {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}
+
+
+/* ============================================
+   RESPONSIVE MÓVILES PEQUEÑOS (≤ 480px)
+============================================ */
+@media (max-width: 480px) {
+
+  /* BANNER */
+  .banner-container {
+    height: 45vh;
+  }
+
+  .banner-container h1 {
+    font-size: 1.6rem;
+  }
+
+  /* DESCUBRE */
+  .descubre-texto h2 {
+    font-size: 20px;
+  }
+
+  .descubre-texto p {
+    font-size: 15px;
+  }
+
+  .video-local {
+    max-width: 100%;
+  }
+
+  /* PROMOCIONES */
+  .carrusel img {
+    height: 180px;
+  }
+
+  /* DIFERENCIA */
+  .feature {
+    max-width: 260px;
+  }
+
+  /* SERVICIOS */
+  .servicios-lista {
+    gap: 20px;
+  }
+
+  .servicio-item img {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* ALIADOS */
+  .aliados-logos img {
+    width: 90px;
+  }
+
+  .logo-dorado {
+    width: 58px !important;
+    height: 58px !important;
+  }
+}
+

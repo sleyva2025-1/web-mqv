@@ -1,286 +1,300 @@
+/* =========================================
+   ESTILOS GENERALES Y LAYOUT
+   ========================================= */
 .nav-container {
   position: fixed;
   justify-content: space-between;
   align-items: center;
- 
   width: 100%;
   top: 0;
-  z-index: 100;
+  z-index: 1000; /* Aumentado para estar siempre arriba */
   background-color: transparent;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   padding: 0 20px;
-  .dlogo svg {
-    .cls-1, .cls-2 {
-      fill: white;
-      transition: fill 0.3s ease;
 
-    }
-  }
-  .menu {
-
-    .nav-list {
-      li {
-        .nav-item {
-          color: white;
-          font-weight: bolder;
-         
-          text-transform: uppercase;
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-          opacity: 1;
-          text-decoration: none;
-          transition: color 0.3s ease;
-          &:hover {
-            color: #fff;
-          }
-
-          &.active {
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            text-decoration-thickness: 2px;
-          }
-        }
-      }
-    }
-  }
-  
-    /* Bloque INS */
-  .INS {
-    
-    position: absolute;
-    left: 60rem; /* Ajusta según el ancho del logo */
-    top: 50%;
-    transform: translateY(-50%);
-    
-  }
-
-  .INS a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
-     margin: 0 15px;
-  }
-
-  .INS a:hover {
-    color: #00d46a; /* Verde al pasar el mouse */
-  }
-
-
-    /* src/app/nav/nav.component.css o .scss */
-
-  /* Estilo para los enlaces normales en la navegación */
-  .tns a {
-    color: white; 
-    text-decoration: none; /* Si no quieres subrayado */
-      font-weight: bold;
-    transition: color 0.3s ease;
-     margin: 0 15px;
-  }
-
-  /* Estilo para el enlace activo (la página actual) */
-  .tns a.active {
-    color: white;
-    font-weight: bold; /* Hace el texto negrita */
-    border-bottom: 2px solid white; /* Añade un subrayado blanco */
-    padding-bottom: 2px; /* Pequeño espacio entre texto y subrayado */
-}
-
-
-
-
-
+  /* Estilos al hacer scroll */
   &.scrolled {
     background-color: #042f59;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    .dlogo svg {
-      .cls-1, .cls-2 {
-        fill: #fff;
-      }
+
+    .dlogo svg .cls-1, .dlogo svg .cls-2 {
+      fill: #fff;
     }
-    .menu {
-      .nav-list {
-        li {
-          .nav-item {
-            color: #fff;
-          }
-        }
-      }
+    /* Forzamos color blanco en items al hacer scroll */
+    .menu .nav-list li .nav-item {
+      color: #fff;
     }
   }
+
+  /* Contenedor Flex Principal */
   .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
     width: 100%;
-    max-width: 100%; 
+    max-width: 100%;
   }
 }
+
+/* =========================================
+   LOGO
+   ========================================= */
 .dlogo {
   width: 200px;
   height: auto;
-  margin-left: -50px; 
+  margin-left: -50px;
 }
+
 .dlogo svg {
   width: 100%;
   height: 100%;
   margin-left: 20px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
-.menu {
-  margin-right: 50px; 
+
+.dlogo svg .cls-1, .dlogo svg .cls-2 {
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+/* =========================================
+   MENÚ DE ESCRITORIO
+   ========================================= */
+/* Usamos el selector completo para evitar conflictos */
+.nav-container .menu {
+  margin-right: 50px;
+  display: flex;       
+  align-items: center; 
+  gap: 15px;           
 
   .nav-list {
     list-style-type: none;
     display: flex;
-    gap: 35px; 
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+
     li {
-      margin: 0; 
+      margin: 0;
       font-size: 1rem;
+      position: relative; /* Necesario para el dropdown */
+
       .nav-item {
-        text-decoration: none;
-        opacity: 0.5;
+        color: white;
+        font-weight: bolder;
         text-transform: uppercase;
-        white-space: nowrap; 
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        opacity: 1;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+        opacity: 0.8;
+
         &:hover, &.active {
+          color: #fff;
           opacity: 1;
+          text-decoration: underline;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
         }
       }
     }
   }
 }
 
-@media (max-width: 768px) {
-  .nav-content {
-    padding: 15px 20px;
-  }
-  .dlogo {
-    width: 150px;
-  }
-  .menu {
-    .nav-list {
-      gap: 5px;
-      li {
-        font-size: 0.9rem;
-      }
-    }
-  }
+/* Bloque INS / TNS (Si se usan) */
+.tns a {
+  color: white; 
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  margin: 0 15px;
 }
-.hamburger {
-  display: none; /* Oculto por defecto */
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
+.tns a.active {
   color: white;
-  position: absolute;
-  right: 20px; /* Colocar hacia la derecha */
-  top: 20px
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
 }
 
-@media (max-width: 768px) {
-  .nav-content {
-    padding: 15px 20px;
-  }
-
-  .dlogo {
-    width: 100px;
-  }
-
-  .menu {
-    display: none; /* Ocultar menú normal en dispositivos pequeños */
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #072d75;
-    padding: 10px 0;
-
-    .nav-list {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-
-      li {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  .menu.open {
-    display: flex; /* Mostrar menú cuando se active */
-  }
-
-  .hamburger {
-    display: block; /* Mostrar botón de hamburguesa en dispositivos pequeños */
-  }
-}
-.camera {
-  display: flex;
-  align-items: center; /* Centra verticalmente */
-  gap: 20px; /* Espacio entre imágenes */
-  height: 10px;
-}
-
-
-li.dropdown {
-  position: relative; /* Permite posicionar el submenú debajo */
-}
-
-/* 2. El submenú (lista anidada) */
+/* =========================================
+   SUBMENÚ (DROPDOWN) - ESCRITORIO
+   ========================================= */
 .dropdown-menu {
-  display: none; /* 3. Oculto por defecto */
+  display: none;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* 4. Estilo de los enlaces dentro del desplegable */
 .dropdown-item {
   color: white;
   text-decoration: none;
   display: block;
   padding: 12px 20px;
-  font-size: 0.9rem; /* Un poco más pequeño */
-  font-weight: normal; /* Letra normal, no 'bolder' */
+  font-size: 0.9rem;
+  font-weight: normal;
   transition: background-color 0.2s ease;
 }
 
 .dropdown-item:hover {
-  background-color: #072d75; /* Color de fondo al pasar el mouse */
+  background-color: #072d75;
 }
 
-
-/* --- LÓGICA PARA ESCRITORIO (Pantallas grandes) --- */
+/* Solo aplicar lógica de hover en pantallas grandes */
 @media (min-width: 769px) {
-  
-  /* Posiciona el submenú */
   .dropdown-menu {
-    /* 1. Oculto por defecto y listo para animar */
-    display: block; /* Lo dejamos 'block' para que la animación funcione */
+    display: block;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px); /* Lo bajamos 10px para un efecto 'slide-up' */
+    transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     
-    /* 2. Estilos para que se destaque */
     position: absolute;
-    top: 100%; /* Justo debajo del enlace 'PAQUETES' */
+    top: 100%;
     left: 0;
-    background-color: #073b70; /* Un azul más claro que el scroll (#042f59) */
+    background-color: #073b70;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-    border-top: 1px solid #00aeff; /* Línea superior de acento */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #00aeff;
     padding: 10px 0;
     min-width: 200px;
     z-index: 110;
   }
 
-  /* 3. ¡LA MAGIA! Muestra el submenú al pasar el mouse */
   li.dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0); /* Vuelve a su posición original */
+    transform: translateY(0);
   }
+}
+
+/* =========================================
+   BOTONES DE TRADUCCIÓN
+   ========================================= */
+.traductor-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 20px; 
+  margin-left: 0;
+}
+
+.flag-btn {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px; 
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 22px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background-color 0.2s;
+  opacity: 0.8;
+}
+
+.flag-btn:hover {
+  transform: scale(1.1);
+  background-color: #f0f8ff;
+}
+
+.flag-btn.active {
+  border: 2px solid #00a8d9;
+  font-weight: bold;
+  opacity: 1;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 168, 217, 0.4);
+}
+
+/* =========================================
+   BOTÓN HAMBURGUESA
+   ========================================= */
+.hamburger {
+  display: none; /* Oculto en escritorio */
+  background: none;
+  border: none;
+  font-size: 1.5rem; /* Un poco más grande para facilitar el clic */
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 25px; /* Ajustado para centrar */
+  z-index: 1100; /* ¡CRÍTICO! Debe ser mayor que el menú para poder cerrar */
+}
+
+/* =========================================
+   RESPONSIVE MÓVIL (CORREGIDO)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  /* Ajustes generales del navbar móvil */
+  .nav-container .nav-content {
+    padding: 15px 20px;
+  }
+
+  .dlogo {
+    width: 140px; /* Tamaño logo móvil */
+    margin-left: -20px;
+  }
+
+  .hamburger {
+    display: block; /* Mostrar botón */
+  }
+
+  /* --- EL MENÚ MÓVIL --- */
+  /* Usamos !important en display none para asegurar que sobrescriba al flex del escritorio */
+  .nav-container .menu {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%; /* Justo debajo de la barra */
+    left: 0;
+    width: 100%;
+    background-color: #072d75; /* Fondo azul sólido */
+    padding: 20px 0;
+    margin-right: 0;
+    gap: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    
+    /* Animación opcional */
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* CLASE OPEN: Solo se muestra cuando Angular añade esta clase */
+  .nav-container .menu.open {
+    display: flex; 
+  }
+
+  /* Ajustar la lista para que sea vertical */
+  .nav-container .menu .nav-list {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Ajuste de traducción en móvil */
+  .traductor-container {
+    margin-right: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+    width: 80%;
+    justify-content: center;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

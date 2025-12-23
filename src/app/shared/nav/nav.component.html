@@ -1,21 +1,14 @@
 <nav class="nav-container" [class.scrolled]="isScrolled">
   <div class="main-container">
     <div class="nav-content">
+      
       <div class="dlogo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810.54 148.88">
           <defs>
             <style>
-              .cls-1 {
-                fill: #00a8d9;
-              }
-
-              .cls-1, .cls-2 {
-                stroke-width: 0px;
-              }
-
-              .cls-2 {
-                fill: #07a8d9;
-              }
+              .cls-1 { fill: #00a8d9; }
+              .cls-1, .cls-2 { stroke-width: 0px; }
+              .cls-2 { fill: #07a8d9; }
             </style>
           </defs>
           <g id="MAS_QUE_VACACIONES" data-name="MAS QUE VACACIONES">
@@ -42,40 +35,39 @@
           </g>
         </svg>
       </div>
-      <button class="hamburger" (click)="toggleMenu()">☰</button>
-      <div class="menu"  [class.open]="isMenuOpen">
-        <ul class="nav-list">
-        <li *ngFor="let route of routes" [class.dropdown]="route.children">
-          
-          <a [routerLink]="['/', route.path]" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
-            {{ route.name }}
-          </a>
-          
-          <ul *ngIf="route.children" class="dropdown-menu">
-            <li *ngFor="let child of route.children">
-              <a [routerLink]="['/', child.path]" class="dropdown-item" (click)="toggleMenu()">
-                {{ child.name }}
-              </a>
-            </li>
-          </ul>
 
-        </li>
-      </ul>
-          
+      <button class="hamburger" (click)="toggleMenu()">☰</button>
+
+      <div class="menu" [class.open]="isMenuOpen">
         
-        
-        <!-- Sección INS -->
-        <!--<div class="tns">
-          <a routerLink="/INICIO">🏠INICIO</a> 
-          
-          <a routerLink="/CONÓCENOS">👥CONÓCENOS</a>
-          <a routerLink="/soporte" routerLinkActive="active">🎧SOPORTE</a>
-          <a routerLink="/PAQUETES">✈️PAQUETES</a>
-          
-        </div>-->
+        <div class="traductor-container">
+          <div id="google_translate_element" style="width:0; height:0; overflow:hidden; position:absolute; visibility:hidden; z-index: -1;"></div>
+
+          <button (click)="translatePage('es')" class="flag-btn" [class.active]="currentLang === 'es'">
+            🇪🇸
+          </button>
+
+          <button (click)="translatePage('en')" class="flag-btn" [class.active]="currentLang === 'en'">
+            🇺🇸
+          </button>
+        </div>
+
+        <ul class="nav-list">
+          <li *ngFor="let route of routes" [class.dropdown]="route.children">
+            <a [routerLink]="['/', route.path]" routerLinkActive="active" class="nav-item" (click)="toggleMenu()">
+              {{ route.name }}
+            </a>
+            <ul *ngIf="route.children" class="dropdown-menu">
+              <li *ngFor="let child of route.children">
+                <a [routerLink]="['/', child.path]" class="dropdown-item" (click)="toggleMenu()">
+                  {{ child.name }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
       </div>
     </div>
   </div>
-
 </nav>

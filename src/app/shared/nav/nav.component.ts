@@ -1,6 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common'
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
@@ -9,45 +9,59 @@ import { NgFor, NgIf } from '@angular/common'
     NgFor,
     RouterModule,
     NgIf
-],
+  ],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+
   isScrolled = false;
   isMenuOpen = false;
   
-  // Asegúrate de definir SECTIONS_ROUTES o importarla de donde corresponda
-  
+  // Variable para el idioma actual
+  currentLang: string = 'es';
 
   routes = [
-    { path: 'INICIO', name: '🏠INICIO' },
+    { path: 'inicio', name: '🏠INICIO' },
     { path: 'conocenos', name: '👥CONÓCENOS' },
     { path: 'soporte', name: '🎧SOPORTE' },
     { 
-      path: 'PAQUETES', // Ruta principal (asegúrate que exista en app.routes.ts)
+      path: 'PAQUETES', 
       name: '✈️PAQUETES',
-      children: [ // Sub-enlaces
+      children: [ 
         { path: 'paquetes-nacionales', name: 'PAQUETES NACIONALES' },
         { path: 'paquetes-internacionales', name: 'PAQUETES INTERNACIONALES' }
       ]
     }
-    
   ];
 
-
-
-
-
-
-
-
-
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen; // Corregido el operador lógico
+  // ✅ Lógica de inicialización del idioma
+  ngOnInit() {
+    // Al cargar, leemos la cookie para saber qué botón pintar
+    if (typeof document !== 'undefined' && document.cookie && document.cookie.includes('/en')) {
+      this.currentLang = 'en';
+    } else {
+      this.currentLang = 'es';
+    }
   }
 
-  // Detectar el scroll de la ventana
+  // ✅ Función para traducir y recargar
+  translatePage(lang: string) {
+    // '/es/en' = De Español a Inglés, '/es/es' = Original
+    const googleValue = lang === 'es' ? '/es/es' : '/es/en';
+
+    // Guardamos la cookie necesaria para Google
+    document.cookie = `googtrans=${googleValue}; path=/`; 
+    document.cookie = `googtrans=${googleValue}; path=/; domain=${window.location.hostname}`;
+
+    // Recargamos la página para aplicar cambios
+    window.location.reload();
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     this.isScrolled = window.scrollY > 20;
